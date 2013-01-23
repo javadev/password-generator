@@ -90,11 +90,10 @@ public class PassGen extends javax.swing.JFrame {
             ".@,-+/()#$%^&*!"
         };
         long passwordLength = Math.abs(UUID.randomUUID().getLeastSignificantBits() % 7) + 8;
-        for (int passIndex = 0; passIndex < passwords.length; passIndex += 1) {
-            for (int index = 0; index < passwordLength / passwords.length; index += 1) {
-                int charIndex = (int) Math.abs(UUID.randomUUID().getLeastSignificantBits() % passwords[passIndex].length());
-                result.append(passwords[passIndex].substring(charIndex, charIndex + 1));
-            }
+        for (int index = 0; index < passwordLength; index += 1) {
+            int passIndex = (int) (passwords.length * index / passwordLength);
+            int charIndex = (int) Math.abs(UUID.randomUUID().getLeastSignificantBits() % passwords[passIndex].length());
+            result.append(passwords[passIndex].substring(charIndex, charIndex + 1));
         }
         jTextField1.setText(result.toString());
         StringSelection data = new StringSelection(result.toString());
