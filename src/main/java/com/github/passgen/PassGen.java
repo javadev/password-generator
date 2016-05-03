@@ -1,7 +1,7 @@
 /*
  * $Id$
  *
- * Copyright 2013 Valentyn Kolesnikov
+ * Copyright 2016 Valentyn Kolesnikov
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ public class PassGen extends javax.swing.JFrame {
             "qpowiealksdjzmxnvbfghsdjtreiuowiruksfhksajmzxncbvlaksjdhgqwetytopskjhfgvbcnmzxalksjdfhgbvzm",
             ".@,-+/()#$%^&*!"
         };
-        long passwordLength = Math.abs(UUID.randomUUID().getLeastSignificantBits() % 7) + 8;
+        long passwordLength = Math.abs(UUID.randomUUID().getLeastSignificantBits() % 8) + 8;
         for (int index = 0; index < passwordLength; index += 1) {
             int passIndex = (int) (passwords.length * index / passwordLength);
             int charIndex = (int) Math.abs(UUID.randomUUID().getLeastSignificantBits() % passwords[passIndex].length());
